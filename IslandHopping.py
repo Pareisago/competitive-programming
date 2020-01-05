@@ -1,6 +1,7 @@
 # WORK IN PROGRESS
 
 import fileinput
+import math
 
 file = fileinput.input("test.txt")
 
@@ -23,7 +24,9 @@ while q <= cases:
         y2 = float(distance[1])
         x = abs(x1 - x2)
         y = abs(y1 - y2)
-        print(x,y)
+        c = x**2 + y**2
+        c = math.sqrt(c)
+        print(c)
         i += 1
     # print(absolute)
     file.readline()

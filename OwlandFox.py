@@ -1,21 +1,25 @@
 import fileinput
 
-file = fileinput.input("test.txt")
-num = int(file.readline())
+file = fileinput.input()
+count = int(file.readline())
+
+
+def checksum(number):
+    summation = 0
+    for char in str(number):
+        summation += int(char)
+    return summation
+
 
 i = 0
-while i < num:
-    line = file.readline()
-    line = line.strip().split()
-    count = len(line[0])
-    q = 0
-    while q < count:
-        if int(line[0][q]) == '1':
-            q += 1
+while i < count:
+    og_num = int(file.readline())
+    og_sum = int(checksum(og_num))
+    minus_num = og_num - 1
+    while minus_num >= 0:
+        if int(checksum(minus_num)) == og_sum - 1:
+            print(minus_num)
+            break
         else:
-            num = int(line[0][q])
-            num -= 1
-            line[0][q] = num
-        q += 1
-    print(line)
+            minus_num -= 1
     i += 1
