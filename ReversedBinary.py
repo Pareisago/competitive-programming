@@ -1,6 +1,6 @@
 import fileinput
 
-file = fileinput.input()
+file = fileinput.input("test.txt")
 line = file.readline()
 line = line.strip().split()
 
